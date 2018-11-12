@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import Common.Common;
 
-public class TS18_26__VerifyCreateUnsuccessfully extends Common {
+public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "Project"
 	// info

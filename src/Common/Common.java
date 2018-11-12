@@ -16,7 +16,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
-public abstract class Common extends ExpectMessage{
+public abstract class Common extends CollectionMessage{
 
 	public static WebDriver driver = null;
 	public static boolean expectResult = true;
@@ -31,7 +31,7 @@ public abstract class Common extends ExpectMessage{
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", prefs);
 
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "E:\\selenium\\chromedriver.exe");
 		driver = new ChromeDriver(options);
 
 		driver.get("https://edev.framgia.vn/");

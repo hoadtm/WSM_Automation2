@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import Common.Common;
 
-public class TS05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
+public class TC05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
 
 	@Test(priority = 1)
 	public void FOR_PASS_005() throws InterruptedException {

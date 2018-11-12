@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import Common.Common;
 
-public class TS01_03__VerifyComponents extends Common {
+public class TC01_03__VerifyComponents extends Common {
 
 //	Verify that the login screen contains elements
 	@Test(priority = 1)
