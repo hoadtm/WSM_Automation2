@@ -11,7 +11,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "Project"
 	// info
-	@Test(priority = 1, dataProvider = "setLogin")
+	@Test(priority = 19, dataProvider = "setLogin")
 	public void PER_REQ_OT_019(String email, String password) throws InterruptedException {
 		super.testLogin(email, password);
 		waittt();
@@ -30,7 +30,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "From"
 	// info
-	@Test(priority = 2)
+	@Test(priority = 20)
 	public void PER_REQ_OT_020() throws InterruptedException {
 
 		driver.navigate().refresh();
@@ -45,7 +45,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 	}
 
 	// Verify that User is not able to create new request without entering "To" info
-	@Test(priority = 3)
+	@Test(priority = 21)
 	public void PER_REQ_OT_021() throws InterruptedException {
 		driver.navigate().refresh();
 		driver.findElement(By.name("request_ot[project_name]")).sendKeys("Azui");
@@ -59,7 +59,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "Reason"
 	// info
-	@Test(priority = 4)
+	@Test(priority = 22)
 	public void PER_REQ_OT_022() throws InterruptedException {
 		driver.navigate().refresh();
 
@@ -74,7 +74,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request with time is duplicated
 	// with another OT request
-	@Test(priority = 5)
+	@Test(priority = 23)
 	public void PER_REQ_OT_023() throws InterruptedException {
 		driver.navigate().refresh();
 		// create first time
@@ -115,7 +115,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 //	}
 
 	// Verify that User is not taken to another screen if there are any error occurs
-	@Test(priority = 7)
+	@Test(priority = 24)
 	public void PER_REQ_OT_025() {
 
 		driver.navigate().refresh();
@@ -138,7 +138,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that OT request is not display in the OT list after creating a new
 	// request failed
-	@Test(priority = 8)
+	@Test(priority = 25)
 	public void PER_REQ_OT_026() {
 
 		driver.findElement(By.xpath("//*[@id=\"sidebar-scroll\"]/div/ul/li[4]/ul/li[1]/a")).click();

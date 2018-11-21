@@ -1,3 +1,4 @@
+
 package WSM_FORGOT_PASSWORD;
 
 import static org.testng.Assert.assertEquals;
@@ -5,7 +6,8 @@ import static org.testng.Assert.assertEquals;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,11 +15,12 @@ import Common.Common;
 
 public class TC05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
 
-	@Test(priority = 1)
+	// Verify that users can request forgot password with valid email
+	@Test(priority = 4)
 	public void FOR_PASS_005() throws InterruptedException {
 
-		driver.findElement(By.xpath("/html/body/div[2]/div[3]/a")).click();
-		Thread.sleep(1000);
+//		driver.findElement(By.xpath("/html/body/div[2]/div[3]/a")).click();
+//		Thread.sleep(1000);
 		driver.findElement(By.className("btn-forgot-password")).click();
 		Thread.sleep(1000);
 
@@ -27,12 +30,16 @@ public class TC05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
 		driver.findElement(By.xpath("//*[@id=\"devise-forgot-password-form\"]/div[2]/button")).click();
 		waittt();
 
+//		WebDriverWait wait = new WebDriverWait(driver, 30);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[2]/section/div/p")));
 		String actualMessage = driver.findElement(By.xpath("/html/body/div[2]/div[2]/section/div/p")).getText();
 		assertEquals(actualMessage, forgotPassword);
 
 	}
 
-	@Test(priority = 2)
+	// Verify that email is sent to user after requesting forgot password
+	// successully
+	@Test(priority = 5)
 	public void FOR_PASS_006() throws InterruptedException {
 
 		driver.navigate().refresh();
@@ -59,11 +66,13 @@ public class TC05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
 
 		actualResult = driver.findElement(By.id(":35")).isDisplayed();
 		assertEquals(actualResult, expectResult);
-//		driver.findElement(By.id(":35")).click();
+		// driver.findElement(By.id(":35")).click();
 
 	}
 
-	@Test(priority = 3)
+	// Verify that User is redirected to "Change password" screen when clicking
+	// on "Change password" btn on the mail
+	@Test(priority = 6)
 	public void FOR_PASS_007() throws InterruptedException {
 		driver.findElement(By.id(":35")).click();
 		driver.findElement(By.linkText("CHANGE PASSWORD")).click();
@@ -79,13 +88,14 @@ public class TC05_08__VerifyForgotPasswordRequestSuccessfully extends Common {
 		assertEquals(actualLabel, changePasswordLabel);
 	}
 
-	@Test(priority = 4, dataProvider = "setLogin")
+	// Verify that User should be able to login with the current password after
+	// requesting forgot password
+	@Test(priority = 7, dataProvider = "setLogin")
 	public void FOR_PASS_008(String user, String pass) throws InterruptedException {
 
 		driver.get("https://edev.framgia.vn/");
 		waittt();
 		super.testLogin(user, pass);
-		waittt();
 		String actualTitle = driver.getTitle();
 		Assert.assertEquals(actualTitle, titleWeb);
 

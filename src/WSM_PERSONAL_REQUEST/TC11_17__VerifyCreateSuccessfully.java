@@ -32,7 +32,7 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 
 	// Verify that users can login successfully with valid user Email and
 	// password.
-	@Test(priority = 1, dataProvider = "SetLogin")
+	@Test(priority = 12, dataProvider = "setLogin")
 	public void LOGIN(String email, String pass) throws InterruptedException {
 		super.testLogin(email, pass);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -41,11 +41,13 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 		successMsg = driver.findElement(By.xpath("//*[@id='flash-message']"));
 		System.out.println(successMsg.getText());
 		assertEquals(successMsg.getText(), LOGIN_successMsg);
+		waittt();
+
 	}
 
 	// Verify that users can create an OT request successfully without selecting
 	// "Do you OT for other group?' checkbox
-	@Test(priority = 2)
+	@Test(priority = 13)
 	public void PER_REQ_OT_011() throws InterruptedException {
 		menuPersonalRequet = driver.findElement(By.xpath("//*[@id='sidebar-scroll']/div/ul/li[4]/a/span"));
 		menuPersonalRequet.click();
@@ -75,14 +77,16 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 
 		btnSave = driver.findElement(By.xpath("//*[@id='new_request_ot']/input[3]"));
 		btnSave.click();
-
+		
 		WebElement successMsg = driver.findElement(By.xpath("//*[@id='flash-message']"));
 		assertEquals(successMsg.getText(), REQUEST_OVERTIME_successMsg);
+		waittt();
+
 	}
 
 	// Verify that users can create an OT request successfully when selecting
 	// "Do you OT for other group?' checkbox
-	@Test(priority = 3)
+	@Test(priority = 14)
 	public void PER_REQ_OT_012() throws InterruptedException {
 		btnCreate = driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[2]/a"));
 		btnCreate.click();
@@ -117,11 +121,13 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 
 		successMsg = driver.findElement(By.xpath("//*[@id='flash-message']"));
 		assertEquals(successMsg.getText(), REQUEST_OVERTIME_successMsg);
+		waittt();
+
 	}
 
 	// Verify that users can create an OT request successfully with time in
 	// current month
-	@Test(priority = 4)
+	@Test(priority = 15)
 	public void PER_REQ_OT_013() throws InterruptedException {
 		btnCreate = driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[2]/a"));
 		btnCreate.click();
@@ -147,12 +153,14 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 
 		WebElement successMsg = driver.findElement(By.xpath("//*[@id='flash-message']"));
 		assertEquals(successMsg.getText(), REQUEST_OVERTIME_successMsg);
+		waittt();
+
 
 	}
 
 	// Verify that users can create an OT request successfully with time in the
 	// future
-	@Test(priority = 5)
+	@Test(priority = 16)
 	public void PER_REQ_OT_014() throws InterruptedException {
 		btnCreate = driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[2]/a"));
 		btnCreate.click();
@@ -178,20 +186,24 @@ public class TC11_17__VerifyCreateSuccessfully extends Common {
 
 		WebElement successMsg = driver.findElement(By.xpath("//*[@id='flash-message']"));
 		assertEquals(successMsg.getText(), REQUEST_OVERTIME_successMsg);
+		waittt();
+
 	}
 
 	// Verify that system redirects to "Request overtime" screen after creating
 	// a new OT request successfully
-	@Test(priority = 6)
+	@Test(priority = 17)
 	public void PER_REQ_OT_015() throws InterruptedException {
 		String title = driver.getTitle();
 		assertEquals(title, REQUEST_OVERTIME_title);
 		Thread.sleep(2000);
+		waittt();
+
 	}
 
 //	Verify that the latest OT request displays at the top of the OT list
 //	and Verify that OT request data displays correct at the OT list 
-	@Test(priority = 7)
+	@Test(priority = 18)
 	public void PER_REQ_OT_016_017() throws InterruptedException {
 		WebElement dataEmployeeCode = driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[4]/div[1]/div[2]/div/table/tbody/tr/td[1]"));
 		assertEquals(dataEmployeeCode.getText(), "B120839");

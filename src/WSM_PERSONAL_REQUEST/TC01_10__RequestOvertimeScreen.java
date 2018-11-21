@@ -14,34 +14,36 @@ import Common.Common;
 
 public class TC01_10__RequestOvertimeScreen extends Common{
 
-	WebElement lblStaffname = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[1]/div[1]/label"));
-	WebElement txtStaffname = driver.findElement(By.xpath("//*[@id='employee_name']"));
+	
+	public WebElement lblStaffname = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[1]/div[1]/label"));
+	public WebElement txtStaffname = driver.findElement(By.xpath("//*[@id='employee_name']"));
 
-	WebElement lblStaffcode = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[1]/div[2]/label"));
-	WebElement txtStaffcode = driver.findElement(By.xpath("//*[@id='employee_code']"));
+	public WebElement lblStaffcode = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[1]/div[2]/label"));
+	public WebElement txtStaffcode = driver.findElement(By.xpath("//*[@id='employee_code']"));
 
-	WebElement lblBranch = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[2]/div[1]/div/label"));
-	WebElement txtBranch = driver.findElement(By.xpath("//*[@id='select2-chosen-1']"));
+	public WebElement lblBranch = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[2]/div[1]/div/label"));
+	public WebElement txtBranch = driver.findElement(By.xpath("//*[@id='select2-chosen-1']"));
 
-	WebElement lblGroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[2]/div[2]/div/label"));
-	WebElement txtGroup = driver.findElement(By.xpath("//*[@id='select2-chosen-2']"));
+	public WebElement lblGroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[2]/div[2]/div/label"));
+	public WebElement txtGroup = driver.findElement(By.xpath("//*[@id='select2-chosen-2']"));
 
-	WebElement ckbOTforOthergroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[3]/label"));
-	WebElement ckb = driver.findElement(By.id("choose_other_group"));
-	WebElement lblOtherGroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[4]/label"));
-	WebElement drdOtherGroup = driver.findElement(By.xpath("//*[@id='s2id_request_ot_other_group_id']"));
+	public WebElement ckbOTforOthergroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[3]/label"));
+	public WebElement ckb = driver.findElement(By.id("choose_other_group"));
+	public WebElement lblOtherGroup = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[4]/label"));
+	public WebElement drdOtherGroup = driver.findElement(By.xpath("//*[@id='s2id_request_ot_other_group_id']"));
 
-	WebElement lblProject = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[5]/label"));
-	WebElement txtProject = driver.findElement(By.xpath("//*[@id='request_ot_project_name']"));
+	public WebElement lblProject = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[5]/label"));
+	public WebElement txtProject = driver.findElement(By.xpath("//*[@id='request_ot_project_name']"));
 
-	WebElement lblFrom = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[6]/div[1]/label"));
-	WebElement txtFrom = driver.findElement(By.xpath("//*[@id='request_ot_from_time']"));
+	public WebElement lblFrom = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[6]/div[1]/label"));
+	public WebElement txtFrom = driver.findElement(By.xpath("//*[@id='request_ot_from_time']"));
 
-	WebElement lblTo = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[6]/div[2]/label"));
-	WebElement txtTo = driver.findElement(By.xpath("//*[@id='request_ot_end_time']"));
+	public WebElement lblTo = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[6]/div[2]/label"));
+	public WebElement txtTo = driver.findElement(By.xpath("//*[@id='request_ot_end_time']"));
 
-	WebElement lblReason = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[7]/label"));
-	WebElement txtReason = driver.findElement(By.xpath("//*[@id='request_ot_reason']"));
+	public WebElement lblReason = driver.findElement(By.xpath("//*[@id='new_request_ot']/div[7]/label"));
+	public WebElement txtReason = driver.findElement(By.xpath("//*[@id='request_ot_reason']"));
+	
 	
 	public boolean expect = true;
 	public boolean actual;
