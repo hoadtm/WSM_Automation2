@@ -34,8 +34,7 @@ public class TC01_04__VerifyForgotPasswordScreen extends Common{
 		Thread.sleep(2000);
 
 		WebElement title = driver.findElement(By.xpath("/html/body/div[2]/div[2]/label"));
-		System.out.println(title);
-		assertEquals(title, "Forgot password");
+		assertEquals(title.getText(), "FORGOT PASSWORD");
 		Thread.sleep(2000);
 
 	}
@@ -47,7 +46,7 @@ public class TC01_04__VerifyForgotPasswordScreen extends Common{
 		actual = title.isDisplayed();
 		assertEquals(actual, expect);
 
-		WebElement txtEmail = driver.findElement(By.xpath("//*[@id='user_email']"));
+		WebElement txtEmail = driver.findElement(By.cssSelector("#devise-forgot-password-form > div.input-field > div.login-text-field > #user_email")); 
 		actual = txtEmail.isDisplayed();
 		assertEquals(actual, expect);
 
@@ -67,7 +66,7 @@ public class TC01_04__VerifyForgotPasswordScreen extends Common{
 
 	// Verify that User is redirected to Login page when clicking on "Back to
 	// login" link
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void FOR_PASS_004() throws InterruptedException {
 
 		WebElement linkBackToLogin = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/a"));
@@ -75,7 +74,7 @@ public class TC01_04__VerifyForgotPasswordScreen extends Common{
 		Thread.sleep(2000);
 		
 		WebElement title = driver.findElement(By.xpath("/html/body/div[2]/div[1]/label"));
-		assertEquals(title, "LOGIN");
+		assertEquals(title.getText(), "LOGIN");
 		Thread.sleep(2000);
 	}
 

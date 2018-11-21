@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+
+	<test name="WSM_LOGIN">
+		<classes>
+			<class name="WSM_LOGIN.TC01_03__VerifyComponents" />
+			<class name="WSM_LOGIN.TC06_09__VerifyLoginSuccessfully" />
+			<class name="WSM_LOGIN.TC10_13__VerifyLoginUnsuccessfully" />
+		</classes>
+	</test>
+
+	<test name="WSM_PERSONAL_REQUEST">
+		<classes>
+			<class name="WSM_PERSONAL_REQUEST.TC01_10__RequestOvertimeScreen" />
+			<class name="WSM_PERSONAL_REQUEST.TC11_17__VerifyCreateSuccessfully" />
+			<class name="WSM_PERSONAL_REQUEST.TC18_26__VerifyCreateUnsuccessfully" />
+		</classes>
+	</test>
+	
+		<test name="WSM_LOGOUT">
+		<classes>
+			<class name="WSM_LOGOUT.TC01_05__VerifyLogOutFunction" />
+		</classes>
+	</test>
+	
+		<test name="WSM_FORGOT_PASSWORD">
+		<classes>
+			<class name="WSM_FORGOT_PASSWORD.TC01_04__VerifyForgotPasswordScreen" />
+			<class
+				name="WSM_FORGOT_PASSWORD.TC05_08__VerifyForgotPasswordRequestSuccessfully" />
+			<class
+				name="WSM_FORGOT_PASSWORD.TC09_11__VerifyForgotPasswordRequestUnsuccessfully" />
+		</classes>
+	</test>
+
+
+
+</suite> <!-- Suite -->

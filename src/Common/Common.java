@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -24,6 +22,7 @@ public abstract class Common extends CollectionMessage{
 	public static boolean actualResult;
 	
 
+
 	@BeforeTest
 	public void beforeTest() {
 		Map<String, Object> prefs = new HashMap<String, Object>();
@@ -37,20 +36,20 @@ public abstract class Common extends CollectionMessage{
 		driver.get("https://edev.framgia.vn/");
 	}
 
-	@AfterTest
-	public void end() {
-		driver.quit();
-	}
+//	@AfterTest
+//	public void end() {
+//		driver.quit();
+//	}
 
 	@DataProvider
 	public static Object[][] setLogin() {
 
-		return new Object[][] { { "framgia.qa@gmail.com", "123456" } };
+		return new Object[][] { { "do.thi.minh.hoa@framgia.com.edev", "123456" } };
 
 	}
 
 	public void testLogin(String email, String password) throws InterruptedException {
-
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		driver.findElement(By.xpath("/html/body/div[2]/div[3]/a")).click();
 		WebElement txtEmail = driver.findElement(By.id("user_email"));
 		txtEmail.sendKeys(email);
@@ -58,10 +57,11 @@ public abstract class Common extends CollectionMessage{
 		WebElement txtPass = driver.findElement(By.id("user_password"));
 		txtPass.sendKeys(password);
 
-		WebElement buttonLogin = driver.findElement(By.xpath("//*[@id='devise-login-form']/div[4]/button"));
-		buttonLogin.click();
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='devise-login-form']/div[@class='text-center pd-top-20']/button[@type='submit']")));
+		WebElement buttonLogin = driver.findElement(By.xpath("//*[@id='devise-login-form']/div[@class='text-center pd-top-20']/button[@type='submit']"));
 		waittt();
+		buttonLogin.click();
+		
 	}
 
 	public void waittt() {

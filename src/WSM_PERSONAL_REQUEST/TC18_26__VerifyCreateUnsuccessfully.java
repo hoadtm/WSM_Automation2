@@ -2,22 +2,31 @@ package WSM_PERSONAL_REQUEST;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Common.Common;
 
 public class TC18_26__VerifyCreateUnsuccessfully extends Common {
+	
+	public WebElement menuPersonalRequet;
+	public WebElement menuOvertime;
+	public WebElement btnCreate;
 
-	// Verify that User is not able to create new request without entering "Project"
-	// info
-	@Test(priority = 1, dataProvider = "setLogin")
-	public void PER_REQ_OT_019(String email, String password) throws InterruptedException {
-		super.testLogin(email, password);
-		waittt();
-		driver.findElement(By.xpath("//*[@id=\"sidebar-scroll\"]/div/ul/li[4]/a/span")).click();
-		driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/ul/li[4]/ul/li[1]/a")).click();
-		driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/a")).click();
+		
+	@Test(priority = 19)
+	public void PER_REQ_OT_019() throws InterruptedException {
+		menuPersonalRequet = driver.findElement(By.xpath("//*[@id='sidebar-scroll']/div/ul/li[4]/a/span"));
+		menuPersonalRequet.click();
+		Thread.sleep(1000);
+		menuOvertime = driver.findElement(By.xpath("//*[@id='sidebar-scroll']/div/ul/li[4]/ul/li[1]/a"));
+		menuOvertime.click();
+		Thread.sleep(1000);
+
+		btnCreate = driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[2]/a"));
+		btnCreate.click();
+		Thread.sleep(1000);
 
 		driver.findElement(By.id("request_ot_from_time")).sendKeys("2018/10/28 20:32");
 		driver.findElement(By.id("request_ot_end_time")).sendKeys("2018/10/28 22:33");
@@ -30,7 +39,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "From"
 	// info
-	@Test(priority = 2)
+	@Test(priority = 20)
 	public void PER_REQ_OT_020() throws InterruptedException {
 
 		driver.navigate().refresh();
@@ -45,7 +54,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 	}
 
 	// Verify that User is not able to create new request without entering "To" info
-	@Test(priority = 3)
+	@Test(priority = 21)
 	public void PER_REQ_OT_021() throws InterruptedException {
 		driver.navigate().refresh();
 		driver.findElement(By.name("request_ot[project_name]")).sendKeys("Azui");
@@ -59,7 +68,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request without entering "Reason"
 	// info
-	@Test(priority = 4)
+	@Test(priority = 22)
 	public void PER_REQ_OT_022() throws InterruptedException {
 		driver.navigate().refresh();
 
@@ -74,7 +83,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that User is not able to create new request with time is duplicated
 	// with another OT request
-	@Test(priority = 5)
+	@Test(priority = 23)
 	public void PER_REQ_OT_023() throws InterruptedException {
 		driver.navigate().refresh();
 		// create first time
@@ -115,7 +124,7 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 //	}
 
 	// Verify that User is not taken to another screen if there are any error occurs
-	@Test(priority = 7)
+	@Test(priority = 24)
 	public void PER_REQ_OT_025() {
 
 		driver.navigate().refresh();
@@ -138,11 +147,12 @@ public class TC18_26__VerifyCreateUnsuccessfully extends Common {
 
 	// Verify that OT request is not display in the OT list after creating a new
 	// request failed
-	@Test(priority = 8)
+	@Test(priority = 25)
 	public void PER_REQ_OT_026() {
-
-		driver.findElement(By.xpath("//*[@id=\"sidebar-scroll\"]/div/ul/li[4]/ul/li[1]/a")).click();
-		driver.findElement(By.xpath("//*[@id=\"main-container\"]/div[2]/div[2]/a")).click();
+		
+		driver.findElement(By.xpath("//*[@id='sidebar-scroll']/div/ul/li[4]/a/span")).click(); 
+		driver.findElement(By.xpath("//*[@id='sidebar-scroll']/div/ul/li[4]/ul/li[1]/a")).click();
+		driver.findElement(By.xpath("//*[@id='main-container']/div[2]/div[2]/a")).click();
 
 		driver.findElement(By.name("request_ot[project_name]")).sendKeys("Azuiii");
 		driver.findElement(By.id("request_ot_end_time")).sendKeys("2018/11/02 19:17");

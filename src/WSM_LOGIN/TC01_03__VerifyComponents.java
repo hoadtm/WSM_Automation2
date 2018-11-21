@@ -15,7 +15,7 @@ public class TC01_03__VerifyComponents extends Common {
 
 //	Verify that the login screen contains elements
 	@Test(priority = 1)
-	public void Login_001() {
+	public void LOGIN_001() {
 
 		String expectTitle = "Working space";
 		String actualTitle = driver.getTitle();
@@ -46,7 +46,7 @@ public class TC01_03__VerifyComponents extends Common {
 
 //	Verify that “Remember login” checkbox is unselected by default
 	@Test(priority = 2)
-	public void Login_002() {
+	public void LOGIN_002() {
 
 		actualResult = driver.findElement(By.xpath("//*[@id=\"devise-login-form\"]/div[3]/label/span")).isSelected();
 		Assert.assertEquals(actualResult, expectResultDisplay);
@@ -54,12 +54,14 @@ public class TC01_03__VerifyComponents extends Common {
 
 //	Verify that the password is in encrypted form when entered
 	@Test(priority = 3)
-	public void Login_003() {
+	public void LOGIN_003() {
 
 		WebElement password = driver.findElement(By.name("user[password]"));
 		String actualResult = password.getAttribute("type");
 		String expectedPasswordType = "password";
 		assertEquals(actualResult, expectedPasswordType);
+		
+//		driver.quit();
 
 	}
 

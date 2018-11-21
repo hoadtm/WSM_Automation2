@@ -21,7 +21,7 @@ public class TC10_13__VerifyLoginUnsuccessfully extends Common {
 	public WebElement errorGeneral;
 
 	// Verify that User is not able to Login with blank Email or Password
-	@Test(priority = 1)
+	@Test(priority = 8)
 	public void LOGIN_010() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[3]/a")));
@@ -41,7 +41,7 @@ public class TC10_13__VerifyLoginUnsuccessfully extends Common {
 
 	// Verify that User is not able to Login with invalid Email and invalid
 	// Password
-	@Test(priority = 2)
+	@Test(priority = 9)
 	public void LOGIN_011() throws InterruptedException {
 		txtEmail = driver.findElement(By.id("user_email"));
 		txtEmail.sendKeys("abc@framgia.com");
@@ -58,7 +58,7 @@ public class TC10_13__VerifyLoginUnsuccessfully extends Common {
 
 	// Verify that User is not able to Login with Valid Email and invalid
 	// Password
-	@Test(priority = 3)
+	@Test(priority = 10)
 	public void LOGIN_012() throws InterruptedException {
 		txtEmail = driver.findElement(By.id("user_email"));
 		txtEmail.clear();
@@ -77,7 +77,7 @@ public class TC10_13__VerifyLoginUnsuccessfully extends Common {
 
 	// Verify that User is not able to Login with invalid Email and Valid
 	// Password
-	@Test(priority = 4)
+	@Test(priority = 11)
 	public void LOGIN_013() throws InterruptedException {
 		txtEmail = driver.findElement(By.id("user_email"));
 		txtEmail.clear();
